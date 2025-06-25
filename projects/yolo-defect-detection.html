@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOLOv5 Industrial LED Defect Detection - Nias Ananto Portfolio</title>
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    /*-----------------------------------*\
+    #COMMON SECTION STYLES
+  \*-----------------------------------*/
+
+    .problem-section,
+    .performance-section,
+    .sample-outputs-section {
+      margin-top: 30px;
+      background: var(--eerie-black-1);
+      border-radius: 16px;
+      padding: 25px;
+      border: 1px solid var(--jet);
+      margin-bottom: 20px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      color: var(--white-2);
+      font-size: var(--fs-2);
+      font-weight: var(--fw-500);
+      margin-bottom: 10px;
+    }
+
+    .section-description {
+      color: var(--light-gray);
+      font-size: var(--fs-6);
+      line-height: 1.6;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .problem-content {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .challenge-box {
+      background: var(--eerie-black-1);
+      border: 1px solid var(--jet);
+      border-radius: 16px;
+      padding: 25px;
+      border-left: 4px solid var(--orange-yellow-crayola);
+    }
+
+    .challenge-title {
+      color: var(--white-2);
+      font-size: var(--fs-4);
+      font-weight: var(--fw-600);
+      margin-bottom: 15px;
+    }
+
+    .challenge-description {
+      color: var(--light-gray);
+      font-size: var(--fs-6);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .requirements-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .requirement-item {
+      background: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: var(--transition-1);
+    }
+
+    .requirement-item:hover {
+      border-color: var(--orange-yellow-crayola);
+      transform: translateY(-2px);
+    }
+
+    .requirement-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .requirement-title {
+      color: var(--white-2);
+      font-size: var(--fs-5);
+      font-weight: var(--fw-600);
+      margin-bottom: 10px;
+    }
+
+    .requirement-desc {
+      color: var(--light-gray);
+      font-size: var(--fs-7);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .solution-overview {
+      background: var(--eerie-black-1);
+      border: 1px solid var(--jet);
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .solution-title {
+      color: var(--white-2);
+      font-size: var(--fs-4);
+      font-weight: var(--fw-600);
+      margin-bottom: 15px;
+    }
+
+    .solution-description {
+      color: var(--light-gray);
+      font-size: var(--fs-6);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .solution-description strong {
+      color: var(--orange-yellow-crayola);
+      font-weight: var(--fw-600);
+    }
+
+    /*-----------------------------------*\
+    #PROJECT OVERVIEW SECTION
+  \*-----------------------------------*/
+
+    .overview-content {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .detection-info {
+      background: var(--eerie-black-1);
+      border: 1px solid var(--jet);
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .overview-subtitle {
+      color: var(--orange-yellow-crayola);
+      font-size: var(--fs-4);
+      font-weight: var(--fw-600);
+      margin-bottom: 15px;
+    }
+
+    .overview-description {
+      color: var(--light-gray);
+      font-size: var(--fs-6);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .overview-description strong {
+      color: var(--white-2);
+      font-weight: var(--fw-600);
+    }
+
+    .defect-types {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .defect-item {
+      background: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: var(--transition-1);
+    }
+
+    .defect-item:hover {
+      border-color: var(--orange-yellow-crayola);
+      transform: translateY(-2px);
+    }
+
+    .defect-icon {
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: var(--orange-yellow-crayola);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .defect-content {
+      flex: 1;
+    }
+
+    .defect-title {
+      color: var(--white-2);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-600);
+      margin-bottom: 5px;
+    }
+
+    .defect-desc {
+      color: var(--light-gray);
+      font-size: var(--fs-7);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .obb-advantage {
+      background: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      border-radius: 12px;
+      padding: 20px;
+      border-left: 4px solid var(--orange-yellow-crayola);
+    }
+
+    .advantage-title {
+      color: var(--white-2);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-600);
+      margin-bottom: 10px;
+    }
+
+    .advantage-desc {
+      color: var(--light-gray);
+      font-size: var(--fs-7);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /*-----------------------------------*\
+    #PERFORMANCE SECTION
+  \*-----------------------------------*/
+
+    .performance-content {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .performance-intro {
+      text-align: center;
+      color: var(--light-gray);
+      font-size: var(--fs-6);
+      line-height: 1.6;
+    }
+
+    .performance-table-container {
+      background: var(--eerie-black-1);
+      border: 1px solid var(--jet);
+      border-radius: 16px;
+      padding: 25px;
+      overflow-x: auto;
+    }
+
+    .table-title {
+      color: var(--white-2);
+      font-size: var(--fs-5);
+      font-weight: var(--fw-600);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .performance-table {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--jet);
+      border-radius: 8px;
+      overflow: hidden;
+      min-width: 700px;
+    }
+
+    .table-header {
+      display: contents;
+    }
+
+    .header-cell {
+      background: var(--onyx);
+      color: var(--white-2);
+      padding: 15px 12px;
+      text-align: center;
+      font-size: var(--fs-7);
+      font-weight: var(--fw-600);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .table-row {
+      display: contents;
+    }
+
+    .table-row.best-approach .cell {
+      background: rgba(255, 183, 3, 0.1);
+      border-left: 3px solid var(--orange-yellow-crayola);
+    }
+
+    .cell {
+      background: var(--eerie-black-2);
+      color: var(--light-gray);
+      padding: 15px 12px;
+      text-align: center;
+      font-size: var(--fs-7);
+      border-left: 1px solid var(--jet);
+    }
+
+    .cell.model-name {
+      text-align: left;
+      font-weight: var(--fw-600);
+      color: var(--white-2);
+    }
+
+    .cell.best-metric {
+      color: var(--orange-yellow-crayola);
+      font-weight: var(--fw-600);
+    }
+
+    .model-link,
+    .pretrained-link {
+      color: var(--orange-yellow-crayola);
+      text-decoration: none;
+      transition: var(--transition-1);
+    }
+
+    .model-link:hover,
+    .pretrained-link:hover {
+      color: var(--white-2);
+      text-decoration: underline;
+    }
+
+    .pretrained-link {
+      color: var(--light-gray);
+      font-size: var(--fs-8);
+    }
+
+    .performance-notes {
+      background: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .note-text {
+      color: var(--light-gray);
+      font-size: var(--fs-7);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .note-text strong {
+      color: var(--white-2);
+    }
+
+    .results-summary {
+      background: var(--eerie-black-1);
+      border: 1px solid var(--jet);
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .summary-title {
+      color: var(--white-2);
+      font-size: var(--fs-4);
+      font-weight: var(--fw-600);
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .achievement-item {
+      background: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: var(--transition-1);
+    }
+
+    .achievement-item:hover {
+      border-color: var(--orange-yellow-crayola);
+      transform: translateY(-2px);
+    }
+
+    .achievement-metric {
+      color: var(--orange-yellow-crayola);
+      font-size: var(--fs-2);
+      font-weight: var(--fw-600);
+      margin-bottom: 8px;
+    }
+
+    .achievement-label {
+      color: var(--white-2);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-600);
+      margin-bottom: 5px;
+    }
+
+    .achievement-desc {
+      color: var(--light-gray);
+      font-size: var(--fs-7);
+      line-height: 1.4;
+    }
+
+    /*-----------------------------------*\
+    #SAMPLE OUTPUTS SECTION
+  \*-----------------------------------*/
+
+    .samples-content {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .samples-intro {
+      text-align: center;
+      color: var(--light-gray);
+      font-size: var(--fs-6);
+      line-height: 1.6;
+    }
+
+    .samples-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .sample-item {
+      background: var(--eerie-black-1);
+      border: 1px solid var(--jet);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: var(--transition-1);
+    }
+
+    .sample-item:hover {
+      border-color: var(--orange-yellow-crayola);
+      transform: translateY(-2px);
+    }
+
+    .sample-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .sample-header {
+      padding: 20px 25px 15px;
+      border-bottom: 1px solid var(--jet);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .sample-title {
+      color: var(--white-2);
+      font-size: var(--fs-5);
+      font-weight: var(--fw-600);
+      margin: 0;
+    }
+
+    .sample-badge {
+      background: var(--orange-yellow-crayola);
+      color: var(--smoky-black);
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: var(--fs-8);
+      font-weight: var(--fw-600);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .sample-image-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--eerie-black-2);
+      overflow: hidden;
+    }
+    .sample-image-container:has(.sample-image[src]:not([src=""])) .image-placeholder {
+  display: none;
+}
+
+    .sample-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--light-gray-70);
+      background: var(--eerie-black-2);
+      text-align: center;
+    }
+
+    .placeholder-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      opacity: 0.7;
+    }
+
+    .placeholder-text {
+      font-size: var(--fs-6);
+      font-weight: var(--fw-500);
+      line-height: 1.4;
+    }
+
+    .placeholder-text small {
+      font-size: var(--fs-8);
+      color: var(--orange-yellow-crayola);
+      display: block;
+      margin-top: 5px;
+    }
+
+    .sample-description {
+      padding: 20px 25px 25px;
+      flex-grow: 1;
+    }
+
+    .sample-description p {
+      color: var(--light-gray);
+      font-size: var(--fs-7);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /*-----------------------------------*\
+    #RESPONSIVE
+  \*-----------------------------------*/
+
+    @media (min-width: 580px) {
+      :root {
+        --fs-1: 32px;
+        --fs-2: 24px;
+        --fs-3: 26px;
+        --fs-4: 18px;
+        --fs-6: 15px;
+        --fs-7: 15px;
+        --fs-8: 12px;
+      }
+
+      .sidebar,
+      article {
+        width: 520px;
+        margin-inline: auto;
+        padding: 30px;
+      }
+
+      .article-title {
+        font-weight: var(--fw-600);
+        padding-bottom: 15px;
+      }
+
+      .icon-box {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        font-size: 18px;
+      }
+
+      main {
+        margin-top: 60px;
+        margin-bottom: 60px;
+      }
+
+      .sidebar {
+        max-height: 180px;
+        margin-bottom: 30px;
+      }
+
+      .sidebar.active {
+        max-height: 584px;
+      }
+
+      .sidebar-info {
+        gap: 25px;
+      }
+
+      .avatar-box {
+        border-radius: 30px;
+      }
+
+      .avatar-box img {
+        width: 120px;
+      }
+
+      .info-content .name {
+        margin-bottom: 15px;
+      }
+
+      .info-content .title {
+        padding: 5px 18px;
+      }
+
+      .info_more-btn {
+        top: -30px;
+        right: -30px;
+        padding: 10px 15px;
+      }
+
+      .info_more-btn span {
+        display: block;
+        font-size: var(--fs-8);
+      }
+
+      .info_more-btn ion-icon {
+        display: none;
+      }
+
+      .separator {
+        margin: 32px 0;
+      }
+
+      .contacts-list {
+        gap: 20px;
+      }
+
+      .navbar {
+        border-radius: 20px 20px 0 0;
+      }
+
+      .navbar-list {
+        gap: 20px;
+      }
+
+      .navbar-link {
+        --fs-8: 14px;
+      }
+
+      /* Problem section responsive */
+      .requirements-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      /* Project overview responsive */
+      .defect-types {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      /* Performance section responsive */
+      .achievements-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      /* Sample outputs responsive */
+      .samples-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .trajectory-main {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      /* Video section responsive */
+      .video-section {
+        padding: 30px;
+      }
+
+      .video-title {
+        font-size: var(--fs-1);
+      }
+
+      /* Model description responsive */
+      .model-description-section {
+        padding: 30px;
+      }
+
+      .model-section-title {
+        font-size: var(--fs-1);
+      }
+
+      .model-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+    }
+
+    @media (min-width: 768px) {
+
+      .sidebar,
+      article {
+        width: 700px;
+      }
+
+      .contacts-list {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 15px;
+      }
+
+      .navbar-link {
+        --fs-8: 15px;
+      }
+
+      /* Problem section responsive */
+      .requirements-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+
+      /* Project overview responsive */
+      .defect-types {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+
+      /* Performance section responsive */
+      .achievements-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+
+      /* Sample outputs responsive */
+      .samples-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      .trajectory-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      /* Video section responsive */
+      .video-container {
+        max-width: 100%;
+      }
+
+      /* Model description responsive */
+      .model-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+
+      .performance-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+      }
+
+      .performance-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+      }
+
+      .performance-label {
+        min-width: auto;
+      }
+
+      .performance-note {
+        text-align: center;
+        min-width: auto;
+      }
+    }
+
+    @media (min-width: 1024px) {
+
+      .sidebar,
+      article {
+        width: 950px;
+        box-shadow: var(--shadow-2);
+      }
+
+      .navbar {
+        position: absolute;
+        bottom: auto;
+        top: 0;
+        left: auto;
+        right: 0;
+        width: max-content;
+        border-radius: 0 20px;
+        padding: 0 20px;
+        box-shadow: none;
+      }
+
+      .navbar-list {
+        gap: 30px;
+        padding: 0 20px;
+      }
+
+      .navbar-link {
+        font-weight: var(--fw-500);
+      }
+
+      /* Problem section responsive */
+      .requirements-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .problem-content {
+        gap: 30px;
+      }
+
+      /* Architecture section responsive */
+      .architecture-diagram {
+        padding: 40px;
+      }
+
+      .backbone-flow {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 10px;
+      }
+
+      .improvements-section {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      /* Performance section responsive */
+      .performance-table-container {
+        padding: 30px;
+      }
+
+      .achievements-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+      }
+
+      .performance-content {
+        gap: 40px;
+      }
+
+      .trajectory-main {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 20px;
+      }
+
+      /* Video section responsive */
+      .video-section {
+        padding: 40px;
+      }
+
+      /* Model description responsive */
+      .model-description-section {
+        padding: 40px;
+      }
+
+      .model-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      .performance-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .performance-item {
+        flex-direction: row;
+        text-align: left;
+      }
+
+      .performance-note {
+        text-align: right;
+        min-width: 100px;
+      }
+    }
+
+    @media (min-width: 1250px) {
+
+      .sidebar,
+      article {
+        width: auto;
+      }
+
+      article {
+        min-height: 100%;
+      }
+
+      main {
+        max-width: 1500px;
+        margin-inline: auto;
+        margin-bottom: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 25px;
+      }
+
+      .main-content {
+        position: relative;
+        min-width: 75%;
+        width: 75%;
+        margin: 0;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 60px;
+        max-height: max-content;
+        height: 100%;
+        margin-bottom: 0;
+        padding-top: 60px;
+        z-index: 1;
+      }
+
+      .sidebar-info {
+        flex-direction: column;
+      }
+
+      .avatar-box img {
+        width: 150px;
+        padding-top: 10px;
+      }
+
+      .info-content .name {
+        white-space: nowrap;
+        text-align: center;
+      }
+
+      .info-content .title {
+        margin: auto;
+      }
+
+      .info_more-btn {
+        display: none;
+      }
+
+      .sidebar-info_more {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .contacts-list {
+        grid-template-columns: 1fr;
+      }
+
+      .social-list {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="../assets/images/my-avatar.png" alt="Nias Ananto" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Nias Ananto">Nias Ananto</h1>
+
+          <p class="title">AI Engineer & Researcher</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:xnias.ananto@gmail.com" class="contact-link">xnias.ananto@gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="tel:+82105924914" class="contact-link">+82 10-5924-9154</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Seoul, South Korea</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/nias-ananto/" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://github.com/Mikael17125" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="../index.html" class="navbar-link">
+              <ion-icon name="arrow-back-outline"></ion-icon>
+              Back to Portfolio
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <!--
+        - #PROJECT DETAIL
+      -->
+
+      <article class="project-detail active" data-page="project-detail">
+
+        <header>
+          <h2 class="h2 article-title">YOLOv5 Industrial LED Defect Detection</h2>
+        </header>
+
+        <section class="problem-section">
+          <div class="section-header">
+            <h2 class="section-title">Problem Statement</h2>
+            <p class="section-description">
+              This project implements an advanced YOLOv5-based system for industrial LED quality control using
+              <strong>Object-Oriented Bounding Boxes (OBB)</strong> to precisely detect and classify LED defects.
+              The system is specifically designed to identify:
+            </p>
+          </div>
+
+          <div class="defect-types">
+            <div class="defect-item">
+              <div class="defect-icon">🔍</div>
+              <div class="defect-content">
+                <h5 class="defect-title">Missing LEDs</h5>
+                <p class="defect-desc">Detection of absent LED components in expected positions</p>
+              </div>
+            </div>
+
+            <div class="defect-item">
+              <div class="defect-icon">🔄</div>
+              <div class="defect-content">
+                <h5 class="defect-title">Misoriented LEDs</h5>
+                <p class="defect-desc">Identification of LEDs with incorrect rotational alignment</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="performance-section">
+
+          <div class="section-header">
+            <h2 class="section-title">Performance Results</h2>
+            <p class="section-description">
+              Comprehensive performance evaluation of our optimized YOLOv5 models across different deployment
+              scenarios, demonstrating significant improvements in both accuracy and efficiency.</p>
+          </div>
+
+          <!-- ONNX Performance -->
+          <div class="performance-table-container">
+            <h4 class="table-title">Performance</h4>
+            <div class="performance-table">
+              <div class="table-header">
+                <div class="header-cell">Model</div>
+                <div class="header-cell">mAP</div>
+                <div class="header-cell">FPS</div>
+                <div class="header-cell">GFLOPs</div>
+              </div>
+
+              <div class="table-row">
+                <div class="cell model-name">Baseline</div>
+                <div class="cell">96.7</div>
+                <div class="cell">43.05</div>
+                <div class="cell">17.7</div>
+              </div>
+
+              <div class="table-row">
+                <div class="cell model-name">
+                  <a>
+                    Version 1
+                  </a>
+                </div>
+                <div class="cell">98.2</div>
+                <div class="cell">32.32</div>
+                <div class="cell">64.2</div>
+              </div>
+
+              <div class="table-row best-approach">
+                <div class="cell model-name">
+                  <a>
+                    Version 2
+                  </a>
+                </div>
+                <div class="cell best-metric">98.2</div>
+                <div class="cell best-metric">42.64</div>
+                <div class="cell best-metric">21.3</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="performance-notes">
+            <p class="note-text">
+              <em>Note: FPS is calculated during model inference only, without considering the preprocessing and
+                Non-Maximum Suppression (NMS) steps.</em>
+            </p>
+          </div>
+        </section>
+
+        <section class="sample-outputs-section">
+
+          <div class="section-header">
+            <h2 class="section-title">Sample Detection Results</h2>
+            <p class="section-description">
+              Examples of our Object-Oriented Bounding Box (OBB) detection system in action, showcasing precise
+              identification of missing and misoriented LEDs in industrial settings.</p>
+          </div>
+
+
+          <div class="samples-grid">
+            <div class="sample-item">
+              <div class="sample-container">
+                <div class="sample-header">
+                  <h4 class="sample-title">Sample Output 1</h4>
+                  <span class="sample-badge">Missing LED Detection</span>
+                </div>
+                <div class="sample-image-container">
+                  <img src="../assets/images/yolo/img1.png" alt="Sample detection output 1" class="sample-image" loading="lazy">
+                  <div class="image-placeholder">
+                    <div class="placeholder-icon">🖼️</div>
+                    <div class="placeholder-text">Sample Output Image 1<br><small>Please update image path</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="sample-description">
+                  <p>Demonstration of missing LED detection using Object-Oriented Bounding Boxes with precise
+                    localization and classification.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sample-item">
+              <div class="sample-container">
+                <div class="sample-header">
+                  <h4 class="sample-title">Sample Output 2</h4>
+                  <span class="sample-badge">Misoriented LED Detection</span>
+                </div>
+                <div class="sample-image-container">
+                  <img src="../assets/images/yolo/img2.png" alt="Sample detection output 2" class="sample-image" loading="lazy">
+                  <div class="image-placeholder">
+                    <div class="placeholder-icon">🖼️</div>
+                    <div class="placeholder-text">Sample Output Image 2<br><small>Please update image path</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="sample-description">
+                  <p>Example of misoriented LED detection showing the system's capability to identify rotational
+                    alignment issues with high accuracy.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    </section>
+
+    </article>
+
+    </div>
+
+  </main>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

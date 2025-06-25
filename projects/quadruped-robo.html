@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jack-Quad Personal Project - Nias Ananto Portfolio</title>
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+  /*-----------------------------------*\
+    #PROJECT DETAIL
+  \*-----------------------------------*/
+  
+  article {
+    background: var(--eerie-black-1);
+    border: 1px solid var(--jet);
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: var(--shadow-1);
+    z-index: 1;
+  }
+  
+  .article-title {
+    color: var(--white-2);
+    font-size: var(--fs-2);
+    font-weight: var(--fw-600);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--jet);
+  }
+
+  /*-----------------------------------*\
+    #CUSTOM SECTIONS
+  \*-----------------------------------*/
+  
+  .section {
+    margin-bottom: 40px;
+  }
+  
+  .section-title {
+    color: var(--white-2);
+    font-size: var(--fs-3);
+    font-weight: var(--fw-600);
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 20px;
+  }
+  
+  .section-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    background: var(--orange-yellow-crayola);
+    border-radius: 2px;
+  }
+  
+  .intro-text {
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    line-height: 1.8;
+    margin-bottom: 25px;
+    text-align: center;
+    padding: 20px;
+    background: var(--eerie-black-2);
+    border-radius: 12px;
+    border-left: 4px solid var(--orange-yellow-crayola);
+  }
+  
+  .personal-badge {
+    display: inline-block;
+    background: var(--onyx);
+    color: var(--orange-yellow-crayola);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: var(--fs-8);
+    font-weight: var(--fw-600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    background: var(--eerie-black-2);
+    border: 1px solid var(--jet);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 20px;
+    transition: var(--transition-1);
+  }
+  
+  .card:hover {
+    border-color: var(--orange-yellow-crayola);
+    transform: translateY(-2px);
+  }
+  
+  .card-title {
+    color: var(--white-2);
+    font-size: var(--fs-4);
+    font-weight: var(--fw-600);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .card-icon {
+    font-size: 1.5rem;
+    color: var(--orange-yellow-crayola);
+  }
+  
+  .card-text {
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    line-height: 1.6;
+  }
+  
+  .highlight {
+    color: var(--orange-yellow-crayola);
+    font-weight: var(--fw-600);
+  }
+  
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 25px 0;
+  }
+  
+  .feature-item {
+    background: var(--eerie-black-1);
+    border: 1px solid var(--jet);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    transition: var(--transition-1);
+  }
+  
+  .feature-item:hover {
+    border-color: var(--orange-yellow-crayola);
+  }
+  
+  .feature-icon {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--orange-yellow-crayola);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .feature-content h4 {
+    color: var(--white-2);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-600);
+    margin-bottom: 8px;
+  }
+  
+  .feature-content p {
+    color: var(--light-gray);
+    font-size: var(--fs-7);
+    line-height: 1.4;
+    margin: 0;
+  }
+  
+  .tech-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 25px 0;
+  }
+  
+  .tech-item {
+    background: var(--eerie-black-1);
+    border: 1px solid var(--jet);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: var(--transition-1);
+  }
+  
+  .tech-item:hover {
+    border-color: var(--orange-yellow-crayola);
+    transform: translateY(-2px);
+  }
+  
+  .tech-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+    color: var(--orange-yellow-crayola);
+  }
+  
+  .tech-name {
+    color: var(--white-2);
+    font-size: var(--fs-5);
+    font-weight: var(--fw-600);
+    margin-bottom: 8px;
+  }
+  
+  .tech-desc {
+    color: var(--light-gray);
+    font-size: var(--fs-7);
+    line-height: 1.4;
+  }
+  
+  .learning-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 25px 0;
+  }
+  
+  .learning-item {
+    background: var(--eerie-black-1);
+    border: 1px solid var(--jet);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: var(--transition-1);
+  }
+  
+  .learning-item:hover {
+    border-color: var(--orange-yellow-crayola);
+    transform: translateY(-2px);
+  }
+  
+  .learning-icon {
+    font-size: 2.5rem;
+    color: var(--orange-yellow-crayola);
+    margin-bottom: 15px;
+  }
+  
+  .learning-title {
+    color: var(--white-2);
+    font-size: var(--fs-5);
+    font-weight: var(--fw-600);
+    margin-bottom: 8px;
+  }
+  
+  .learning-desc {
+    color: var(--light-gray);
+    font-size: var(--fs-7);
+    line-height: 1.4;
+  }
+  
+  .video-section {
+    background: var(--eerie-black-2);
+    border: 1px solid var(--jet);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 25px 0;
+    transition: var(--transition-1);
+  }
+  
+  .video-section:hover {
+    border-color: var(--orange-yellow-crayola);
+    transform: translateY(-2px);
+  }
+  
+  .video-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--jet);
+    text-align: center;
+  }
+  
+  .video-icon {
+    font-size: 2rem;
+    color: var(--orange-yellow-crayola);
+    margin-bottom: 10px;
+  }
+  
+  .video-title {
+    color: var(--white-2);
+    font-size: var(--fs-4);
+    font-weight: var(--fw-600);
+    margin: 0;
+  }
+  
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    background: var(--eerie-black-1);
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  .video-description {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .video-description p {
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  .links-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 25px 0;
+  }
+  
+  .link-item {
+    background: var(--eerie-black-2);
+    border: 1px solid var(--jet);
+    border-radius: 12px;
+    padding: 20px;
+    transition: var(--transition-1);
+  }
+  
+  .link-item:hover {
+    border-color: var(--orange-yellow-crayola);
+    transform: translateY(-2px);
+  }
+  
+  .link-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .link-icon {
+    font-size: 1.5rem;
+    color: var(--orange-yellow-crayola);
+  }
+  
+  .link-title {
+    color: var(--white-2);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-600);
+    margin: 0;
+  }
+  
+  .link-desc {
+    color: var(--light-gray);
+    font-size: var(--fs-7);
+    line-height: 1.4;
+    margin-bottom: 15px;
+  }
+  
+  .link-button {
+    display: inline-block;
+    background: var(--orange-yellow-crayola);
+    color: var(--smoky-black);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: var(--fs-8);
+    font-weight: var(--fw-600);
+    text-transform: uppercase;
+    transition: var(--transition-1);
+  }
+  
+  .link-button:hover {
+    background: var(--white-2);
+  }
+
+  /*-----------------------------------*\
+    #RESPONSIVE
+  \*-----------------------------------*/
+  
+  @media (min-width: 580px) {
+    .sidebar, article {
+      width: 520px;
+      margin-inline: auto;
+      padding: 30px;
+    }
+    
+    .feature-grid,
+    .tech-grid,
+    .learning-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .links-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .sidebar, article { 
+      width: 700px; 
+    }
+    
+    .tech-grid,
+    .learning-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .links-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .sidebar, article {
+      width: 950px;
+      box-shadow: var(--shadow-2);
+    }
+    
+    .navbar {
+      position: absolute;
+      bottom: auto;
+      top: 0;
+      left: auto;
+      right: 0;
+      width: max-content;
+      border-radius: 0 20px;
+      padding: 0 20px;
+      box-shadow: none;
+    }
+    
+    .tech-grid,
+    .learning-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .feature-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (min-width: 1250px) {
+    .sidebar, article { width: auto; }
+    article { min-height: 100%; }
+    
+    main {
+      max-width: 1500px;
+      margin-inline: auto;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 25px;
+    }
+    
+    .main-content {
+      min-width: 75%;
+      width: 75%;
+      margin: 0;
+    }
+    
+    .sidebar {
+      position: sticky;
+      top: 60px;
+      max-height: max-content;
+      height: 100%;
+      margin-bottom: 0;
+      padding-top: 60px;
+    }
+    
+    .sidebar-info { flex-direction: column; }
+    .avatar-box img { width: 150px; }
+    .info-content .name { text-align: center; }
+    .info-content .title { margin: auto; }
+    .info_more-btn { display: none; }
+    .sidebar-info_more { opacity: 1; visibility: visible; }
+    .contacts-list { grid-template-columns: 1fr; }
+    .social-list { justify-content: center; }
+  }
+  </style>
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+        <div class="sidebar-info">
+  
+          <figure class="avatar-box">
+            <img src="../assets/images/my-avatar.png" alt="Nias Ananto" width="80">
+          </figure>
+  
+          <div class="info-content">
+            <h1 class="name" title="Nias Ananto">Nias Ananto</h1>
+  
+            <p class="title">AI Engineer & Researcher</p>
+          </div>
+  
+          <button class="info_more-btn" data-sidebar-btn>
+            <span>Show Contacts</span>
+  
+            <ion-icon name="chevron-down"></ion-icon>
+          </button>
+  
+        </div>
+  
+        <div class="sidebar-info_more">
+  
+          <div class="separator"></div>
+  
+          <ul class="contacts-list">
+  
+            <li class="contact-item">
+  
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+  
+              <div class="contact-info">
+                <p class="contact-title">Email</p>
+  
+                <a href="mailto:xnias.ananto@gmail.com" class="contact-link">xnias.ananto@gmail.com</a>
+              </div>
+  
+            </li>
+  
+            <li class="contact-item">
+  
+              <div class="icon-box">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+  
+              <div class="contact-info">
+                <p class="contact-title">Phone</p>
+  
+                <a href="tel:+82105924914" class="contact-link">+82 10-5924-9154</a>
+              </div>
+  
+            </li>
+  
+            <li class="contact-item">
+  
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+  
+              <div class="contact-info">
+                <p class="contact-title">Location</p>
+  
+                <address>Seoul, South Korea</address>
+              </div>
+  
+            </li>
+  
+          </ul>
+  
+          <div class="separator"></div>
+  
+          <ul class="social-list">
+  
+            <li class="social-item">
+              <a href="https://www.linkedin.com/in/nias-ananto/" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+  
+            <li class="social-item">
+              <a href="https://github.com/Mikael17125" class="social-link">
+                <ion-icon name="logo-github"></ion-icon>
+              </a>
+            </li>
+  
+          </ul>
+  
+        </div>
+  
+      </aside>
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="../index.html" class="navbar-link">
+              <ion-icon name="arrow-back-outline"></ion-icon>
+              Back to Portfolio
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <!--
+        - #PROJECT DETAIL
+      -->
+
+      <article class="project-detail active" data-page="project-detail">
+
+        <header>
+          <h2 class="article-title">Jack-Quad: Learning Quadruped Robotics</h2>
+          <span class="personal-badge">Personal Learning Project</span>
+        </header>
+
+        <!-- Project Overview -->
+        <section class="section">
+          <h3 class="section-title">Learning Journey</h3>
+          
+          <div class="intro-text">
+            A hands-on exploration of quadruped robotics fundamentals using ROS and Gazebo simulation. 
+            Built to understand four-legged robot dynamics and control systems.
+          </div>
+
+          <div class="card">
+            <h4 class="card-title">
+              <span class="card-icon">🎯</span>
+              Project Goals
+            </h4>
+            <p class="card-text">
+              Learn <span class="highlight">quadruped robot basics</span> by adapting the 
+              <span class="highlight">Robotis Framework</span> for ROS Kinetic. Focus on understanding 
+              walking gaits, simulation, and robot control fundamentals through practical implementation.
+            </p>
+          </div>
+        </section>
+
+          <!-- Video Demo -->
+        <section class="section">
+          <div class="video-section">
+            <div class="video-header">
+              <h3 class="video-title">🎬 Jack-Quad in Action</h3>
+            </div>
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/U6B87XgJ8DU" 
+                title="Jack-Quad Demonstration"
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="video-description">
+              <p>See Jack-Quad walking in Gazebo simulation - a great learning experience in 
+              quadruped robotics fundamentals and ROS integration.</p>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- What I Built -->
+        <section class="section">
+          <h3 class="section-title">What I Built</h3>
+          
+          <div class="intro-text">
+            A functional quadruped robot simulation that demonstrates key robotics concepts 
+            and provides a platform for experimenting with walking algorithms.
+          </div>
+
+          <div class="feature-grid">
+            <div class="feature-item">
+              <div class="feature-icon">🦾</div>
+              <div class="feature-content">
+                <h4>Four-Legged Walker</h4>
+                <p>Basic quadruped robot that can walk using stable gait patterns</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon">🎮</div>
+              <div class="feature-content">
+                <h4>ROS Integration</h4>
+                <p>Full ROS implementation for robot communication and control</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon">🔬</div>
+              <div class="feature-content">
+                <h4>Gazebo Simulation</h4>
+                <p>Physics-based simulation environment for safe testing</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <div class="feature-icon">⚙️</div>
+              <div class="feature-content">
+                <h4>Framework Adaptation</h4>
+                <p>Modified Robotis Framework to work with custom quadruped design</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Technology Stack -->
+        <section class="section">
+          <h3 class="section-title">Learning Technologies</h3>
+          
+          <div class="intro-text">
+            Practical experience with fundamental robotics tools and frameworks.
+          </div>
+
+          <div class="tech-grid">
+            <div class="tech-item">
+              <div class="tech-icon">🐧</div>
+              <div class="tech-name">ROS Kinetic</div>
+              <div class="tech-desc">Robot Operating System for communication and control</div>
+            </div>
+            
+            <div class="tech-item">
+              <div class="tech-icon">🎬</div>
+              <div class="tech-name">Gazebo-7</div>
+              <div class="tech-desc">3D robot simulation with realistic physics</div>
+            </div>
+            
+            <div class="tech-item">
+              <div class="tech-icon">🤖</div>
+              <div class="tech-name">Robotis Framework</div>
+              <div class="tech-desc">Foundation framework adapted for quadruped use</div>
+            </div>
+            
+            <div class="tech-item">
+              <div class="tech-icon">💻</div>
+              <div class="tech-name">C++</div>
+              <div class="tech-desc">Core programming for robot control algorithms</div>
+            </div>
+            
+            <div class="tech-item">
+              <div class="tech-icon">🐍</div>
+              <div class="tech-name">Python</div>
+              <div class="tech-desc">Scripting and higher-level robot behaviors</div>
+            </div>
+            
+            <div class="tech-item">
+              <div class="tech-icon">📐</div>
+              <div class="tech-name">URDF</div>
+              <div class="tech-desc">Robot description and joint modeling</div>
+            </div>
+          </div>
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    // Sidebar toggle functionality
+    const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+    const sidebar = document.querySelector("[data-sidebar]");
+
+    if (sidebarBtn && sidebar) {
+      sidebarBtn.addEventListener("click", function () {
+        sidebar.classList.toggle("active");
+      });
+    }
+  </script>
+
+</body>
+
+</html>

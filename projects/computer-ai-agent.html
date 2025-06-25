@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer AI Agent - Nias Ananto Portfolio</title>
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+
+  <style>
+
+
+  /*-----------------------------------*\
+    #VIDEO SECTION
+  \*-----------------------------------*/
+  
+  .video-section {
+    margin-top: 30px;
+    background: var(--eerie-black-1);
+    border-radius: 16px;
+    padding: 25px;
+    border: 1px solid var(--jet);
+    margin-bottom: 20px;
+  }
+  
+  .video-header {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  .video-title {
+    color: var(--white-2);
+    font-size: var(--fs-2);
+    font-weight: var(--fw-500);
+    margin-bottom: 10px;
+  }
+  
+  .video-description {
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--eerie-black-2);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--jet);
+    box-shadow: var(--shadow-1);
+  }
+  
+  .video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+  }
+  
+  .video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-gray-70);
+    background: var(--eerie-black-2);
+  }
+  
+  .video-placeholder-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    opacity: 0.7;
+  }
+  
+  .video-placeholder-text {
+    font-size: var(--fs-5);
+    font-weight: var(--fw-300);
+    text-align: center;
+  }
+
+  /*-----------------------------------*\
+    #MODEL DESCRIPTION SECTION
+  \*-----------------------------------*/
+  
+  .model-description-section {
+    margin-top: 20px;
+    background: var(--eerie-black-1);
+    border-radius: 16px;
+    padding: 25px;
+    border: 1px solid var(--jet);
+    margin-bottom: 20px;
+  }
+  
+  .model-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .model-section-title {
+    color: var(--white-2);
+    font-size: var(--fs-2);
+    font-weight: var(--fw-600);
+    margin-bottom: 15px;
+  }
+  
+  .model-intro {
+    color: var(--light-gray);
+    font-size: var(--fs-5);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .model-content {
+    margin-top: 30px;
+  }
+  
+  .model-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .model-card {
+    background: var(--eerie-black-2);
+    border: 1px solid var(--jet);
+    border-radius: 12px;
+    padding: 20px;
+    transition: var(--transition-1);
+  }
+  
+  .model-card:hover {
+    border-color: var(--onyx);
+    transform: translateY(-2px);
+  }
+  
+  .model-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+  
+  .model-card-icon {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-gradient-yellow-1);
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+  
+  .model-card-title {
+    color: var(--white-2);
+    font-size: var(--fs-5);
+    font-weight: var(--fw-600);
+    margin: 0;
+  }
+  
+  .model-card-content {
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    line-height: 1.6;
+  }
+  
+  .model-list {
+    margin: 15px 0;
+    padding-left: 20px;
+  }
+  
+  .model-list li {
+    margin-bottom: 8px;
+    color: var(--light-gray);
+  }
+  
+  .model-list li strong {
+    color: var(--white-2);
+  }
+  
+  .performance-simple {
+    margin: 15px 0;
+  }
+  
+  .performance-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--jet);
+  }
+  
+  .performance-row:last-child {
+    border-bottom: none;
+  }
+  
+  .method-name {
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-400);
+  }
+  
+  .success-rate {
+    color: var(--white-2);
+    font-size: var(--fs-4);
+    font-weight: var(--fw-600);
+    padding: 4px 12px;
+    border-radius: 15px;
+    background: var(--onyx);
+  }
+  
+  .success-rate.best {
+    background: hsla(120, 100%, 50%, 0.1);
+    color: hsl(120, 100%, 70%);
+    border: 1px solid hsla(120, 100%, 50%, 0.3);
+  }
+  
+  .success-rate.poor {
+    background: hsla(0, 100%, 50%, 0.1);
+    color: hsl(0, 100%, 70%);
+    border: 1px solid hsla(0, 100%, 50%, 0.3);
+  }
+  
+  .improvement-note {
+    margin-top: 15px;
+    padding: 12px;
+    background: var(--jet);
+    border-radius: 8px;
+    text-align: center;
+    color: var(--orange-yellow-crayola);
+    font-size: var(--fs-6);
+  }
+
+  /*-----------------------------------*\
+    #TRAJECTORY SECTION
+  \*-----------------------------------*/
+  
+  .trajectory-section {
+    margin-top: 30px;
+    background: var(--eerie-black-1);
+    border-radius: 16px;
+    padding: 25px;
+    border: 1px solid var(--jet);
+  }
+  
+  .trajectory-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .demo-subtitle {
+    color: var(--white-2);
+    font-size: var(--fs-2);
+    font-weight: var(--fw-500);
+    margin-bottom: 20px;
+  }
+  
+  .instruction-panel {
+    background: var(--eerie-black-2);
+    border-radius: 12px;
+    padding: 10px;
+    position: relative;
+    margin: 0 auto;
+    max-width: 100%;
+    border: 1px solid var(--jet);
+  }
+  
+  .instruction-title {
+    color: var(--white-2);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
+    margin-bottom: 8px;
+    /* text-transform: uppercase; */
+    text-align: left;
+    letter-spacing: 1px;
+    padding-left: 20px;
+    padding-top: 10px;
+  }
+  
+  .instruction-text {
+    color: var(--white-2);
+    font-size: var(--fs-5);
+    line-height: 1.5;
+    text-align: left;
+    padding-left: 20px;
+    padding-bottom: 10px;
+  }
+  
+  .trajectory-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .screenshot-container {
+    background: var(--eerie-black-2);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--jet);
+  }
+  
+  .screenshot-frame {
+    position: relative;
+    background: var(--onyx);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid var(--jet);
+    transition: var(--transition-1);
+  }
+
+  .screenshot-frame.active {
+    border-color: var(--jet);
+    box-shadow: var(--shadow-1);
+  }
+  
+  .screenshot-header {
+    background: var(--onyx);
+    color: var(--white-2);
+    padding: 12px 20px;
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
+    border-bottom: 1px solid var(--jet);
+  }
+  
+  .screenshot-content {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Maintains 1920x1080 ratio */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--eerie-black-1);
+    overflow: hidden;
+  }
+  
+  .screenshot-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fills the container while maintaining aspect ratio */
+    display: block;
+  }
+  
+  /* Fallback for browsers that don't support aspect-ratio */
+  @supports not (aspect-ratio: 16 / 9) {
+    .screenshot-content {
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
+    }
+    
+    .screenshot-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .screenshot-placeholder {
+    text-align: center;
+    color: var(--light-gray-70);
+  }
+  
+  .placeholder-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    opacity: 0.7;
+  }
+  
+  .placeholder-text {
+    font-size: var(--fs-5);
+    font-weight: var(--fw-300);
+  }
+  
+  .action-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: lightcoral;
+    color: var(--smoky-black);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: var(--fs-7);
+    font-weight: var(--fw-500);
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
+  
+  .click-indicator {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: lightcoral;
+    border-radius: 50%;
+    animation: click-pulse 1.5s infinite;
+    box-shadow: 0 0 0 0 lightcoral;
+  }
+  
+  @keyframes click-pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 hsla(45, 100%, 72%, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 15px hsla(45, 100%, 72%, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 hsla(45, 100%, 72%, 0);
+    }
+  }
+  
+  .trajectory-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .control-btn {
+    background: var(--jet);
+    color: var(--white-2);
+    border: 1px solid var(--onyx);
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: var(--fs-7);
+    font-weight: var(--fw-400);
+    cursor: pointer;
+    transition: var(--transition-1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .control-btn:hover {
+    color: var(--orange-yellow-crayola);
+    transform: translateY(-2px);
+  }
+  
+  .control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .analysis-container {
+    background: var(--eerie-black-2);
+    border-radius: 16px;
+    padding: 25px;
+    border: 1px solid var(--jet);
+  }
+  
+  .step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .step-counter {
+    color: var(--white-2);
+    font-size: var(--fs-5);
+    font-weight: var(--fw-600);
+  }
+  
+  .step-status {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: var(--fs-7);
+    font-weight: var(--fw-500);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .status-active {
+    background: hsla(120, 100%, 50%, 0.1);
+    color: hsl(120, 100%, 70%);
+    border: 1px solid hsla(120, 100%, 50%, 0.3);
+  }
+
+  .status-complete {
+    background: hsla(200, 100%, 50%, 0.1);
+    color: hsl(200, 100%, 70%);
+    border: 1px solid hsla(200, 100%, 50%, 0.3);
+  }
+  
+  .section {
+    margin-bottom: 25px;
+  }
+  
+  .model-title {
+    color: var(--white-2);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-600);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .section-box {
+    background: var(--jet);
+    border: 1px solid var(--onyx);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .step-title {
+    color: var(--white-2);
+    font-size: var(--fs-5);
+    font-weight: var(--fw-500);
+    margin-bottom: 12px;
+  }
+  
+  .step-description {
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    line-height: 1.6;
+    font-weight: var(--fw-300);
+  }
+  
+  .step-details {
+    display: grid;
+    gap: 12px;
+  }
+  
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .detail-label {
+    color: var(--light-gray-70);
+    font-size: var(--fs-7);
+    font-weight: var(--fw-400);
+  }
+  
+  .detail-value {
+    color: var(--white-2);
+    font-size: var(--fs-7);
+    font-weight: var(--fw-500);
+  }
+  
+  .progress-indicator {
+    margin-top: 30px;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--jet);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: var(--orange-yellow-crayola);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+  }
+  
+  .progress-text {
+    text-align: center;
+    color: var(--light-gray-70);
+    font-size: var(--fs-7);
+    font-weight: var(--fw-400);
+  }
+  .image-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--light-gray-70);
+    font-size: var(--fs-6);
+  }
+  /*-----------------------------------*\
+    #RESPONSIVE
+  \*-----------------------------------*/
+  
+  @media (min-width: 580px) {
+    :root {
+      --fs-1: 32px;
+      --fs-2: 24px;
+      --fs-3: 26px;
+      --fs-4: 18px;
+      --fs-6: 15px;
+      --fs-7: 15px;
+      --fs-8: 12px;
+    }
+  
+    .sidebar, article {
+      width: 520px;
+      margin-inline: auto;
+      padding: 30px;
+    }
+  
+    .article-title {
+      font-weight: var(--fw-600);
+      padding-bottom: 15px;
+    }
+  
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      font-size: 18px;
+    }
+  
+    main {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+  
+    .sidebar {
+      max-height: 180px;
+      margin-bottom: 30px;
+    }
+  
+    .sidebar.active { max-height: 584px; }
+  
+    .sidebar-info { gap: 25px; }
+    .avatar-box { border-radius: 30px; }
+    .avatar-box img { width: 120px; }
+    .info-content .name { margin-bottom: 15px; }
+    .info-content .title { padding: 5px 18px; }
+  
+    .info_more-btn {
+      top: -30px;
+      right: -30px;
+      padding: 10px 15px;
+    }
+  
+    .info_more-btn span {
+      display: block;
+      font-size: var(--fs-8);
+    }
+  
+    .info_more-btn ion-icon { display: none; }
+  
+    .separator { margin: 32px 0; }
+    .contacts-list { gap: 20px; }
+  
+    .navbar { border-radius: 20px 20px 0 0; }
+    .navbar-list { gap: 20px; }
+    .navbar-link { --fs-8: 14px; }
+
+    .trajectory-main {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+        /* Video section responsive */
+    .video-section {
+      padding: 30px;
+    }
+    
+    .video-title {
+      font-size: var(--fs-1);
+    }
+
+    /* Model description responsive */
+    .model-description-section {
+      padding: 30px;
+    }
+    
+    .model-section-title {
+      font-size: var(--fs-1);
+    }
+    
+    .model-grid {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .sidebar, article { width: 700px; }
+  
+    .contacts-list {
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 15px;
+    }
+  
+    .navbar-link { --fs-8: 15px; }
+
+    .trajectory-main {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+        /* Video section responsive */
+    .video-container {
+      max-width: 100%;
+    }
+
+    /* Model description responsive */
+    .model-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+    
+    .performance-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+    }
+    
+    .performance-item {
+      flex-direction: column;
+      text-align: center;
+      gap: 8px;
+    }
+    
+    .performance-label {
+      min-width: auto;
+    }
+    
+    .performance-note {
+      text-align: center;
+      min-width: auto;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .sidebar, article {
+      width: 950px;
+      box-shadow: var(--shadow-2);
+    }
+
+    .navbar {
+      position: absolute;
+      bottom: auto;
+      top: 0;
+      left: auto;
+      right: 0;
+      width: max-content;
+      border-radius: 0 20px;
+      padding: 0 20px;
+      box-shadow: none;
+    }
+
+    .navbar-list {
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    .navbar-link { font-weight: var(--fw-500); }
+
+    .trajectory-main {
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+    }
+
+    /* Video section responsive */
+    .video-section {
+      padding: 40px;
+    }
+
+    /* Model description responsive */
+    .model-description-section {
+      padding: 40px;
+    }
+    
+    .model-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    
+    .performance-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    
+    .performance-item {
+      flex-direction: row;
+      text-align: left;
+    }
+    
+    .performance-note {
+      text-align: right;
+      min-width: 100px;
+    }
+  }
+  
+  @media (min-width: 1250px) {
+    .sidebar, article { width: auto; }
+    article { min-height: 100%; }
+  
+    main {
+      max-width: 1500px;
+      margin-inline: auto;
+      margin-bottom: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 25px;
+    }
+  
+    .main-content {
+      position: relative;
+      min-width: 75%;
+      width: 75%;
+      margin: 0;
+    }
+  
+    .sidebar {
+      position: sticky;
+      top: 60px;
+      max-height: max-content;
+      height: 100%;
+      margin-bottom: 0;
+      padding-top: 60px;
+      z-index: 1;
+    }
+  
+    .sidebar-info { flex-direction: column; }
+    .avatar-box img { width: 150px; padding-top: 10px; }
+  
+    .info-content .name {
+      white-space: nowrap;
+      text-align: center;
+    }
+  
+    .info-content .title { margin: auto; }
+    .info_more-btn { display: none; }
+  
+    .sidebar-info_more {
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    .contacts-list { grid-template-columns: 1fr; }
+    .social-list { justify-content: center; }
+  }
+  </style>
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+        <div class="sidebar-info">
+  
+          <figure class="avatar-box">
+            <img src="../assets/images/my-avatar.png" alt="Nias Ananto" width="80">
+          </figure>
+  
+          <div class="info-content">
+            <h1 class="name" title="Nias Ananto">Nias Ananto</h1>
+  
+            <p class="title">AI Engineer & Researcher</p>
+          </div>
+  
+          <button class="info_more-btn" data-sidebar-btn>
+            <span>Show Contacts</span>
+  
+            <ion-icon name="chevron-down"></ion-icon>
+          </button>
+  
+        </div>
+  
+        <div class="sidebar-info_more">
+  
+          <div class="separator"></div>
+  
+          <ul class="contacts-list">
+  
+            <li class="contact-item">
+  
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+  
+              <div class="contact-info">
+                <p class="contact-title">Email</p>
+  
+                <a href="mailto:xnias.ananto@gmail.com" class="contact-link">xnias.ananto@gmail.com</a>
+              </div>
+  
+            </li>
+  
+            <li class="contact-item">
+  
+              <div class="icon-box">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+  
+              <div class="contact-info">
+                <p class="contact-title">Phone</p>
+  
+                <a href="tel:+82105924914" class="contact-link">+82 10-5924-9154</a>
+              </div>
+  
+            </li>
+  
+            <li class="contact-item">
+  
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+  
+              <div class="contact-info">
+                <p class="contact-title">Location</p>
+  
+                <address>Seoul, South Korea</address>
+              </div>
+  
+            </li>
+  
+          </ul>
+  
+          <div class="separator"></div>
+  
+          <ul class="social-list">
+  
+            <li class="social-item">
+              <a href="https://www.linkedin.com/in/nias-ananto/" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+  
+            <li class="social-item">
+              <a href="https://github.com/Mikael17125" class="social-link">
+                <ion-icon name="logo-github"></ion-icon>
+              </a>
+            </li>
+  
+          </ul>
+  
+        </div>
+  
+      </aside>
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="../index.html" class="navbar-link">
+              <ion-icon name="arrow-back-outline"></ion-icon>
+              Back to Portfolio
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <!--
+        - #PROJECT DETAIL
+      -->
+
+      <article class="project-detail active" data-page="project-detail">
+
+        <header>
+          <h2 class="h2 article-title">Computer AI Agent</h2>
+        </header>
+
+        <section class="video-section">
+            <div class="video-header">
+                <h2 class="video-title">Computer AI Agent Demo Video</h2>
+                <p class="video-description">
+                    Watch the AI agent in action as it autonomously navigates PowerPoint, 
+                    adds comments to slides, and completes complex tasks using computer vision and automation.
+                </p>
+            </div>
+            
+            <div class="video-container">
+                <!-- Replace the YouTube video ID in the src URL below -->
+                <iframe 
+                    class="video-iframe" 
+                    src="https://www.youtube.com/embed/s51GmesNu6k" 
+                    title="Computer AI Agent Demo Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+                
+                <!-- Fallback placeholder (hidden when iframe loads) -->
+                <div class="video-placeholder" style="display: none;">
+                    <div class="video-placeholder-icon">🎥</div>
+                    <div class="video-placeholder-text">
+                        Video Loading...<br>
+                        <small>Please check your internet connection</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trajectory-section">
+            <div class="trajectory-header">
+                <h2 class="demo-subtitle">Interactive Trajectory Analysis</h2>
+
+                <div class="instruction-panel">
+                    <div class="instruction-title">Current Task:</div>
+                    <div class="instruction-text" id="instruction-text">Post "put circle shape" comment on slide 3 of
+                        the presentation</div>
+                </div>
+            </div>
+
+            <div class="trajectory-main">
+                <!-- Left side - Screenshot -->
+                <div class="screenshot-container">
+                    <div class="screenshot-frame active" id="screenshot-frame">
+                        <div class="screenshot-header" id="screenshot-header">
+                            Step 1: Navigate to Slide 3
+                        </div>
+                        <div class="screenshot-content" id="screenshot-content">
+                            <img class="screenshot-image" id="screenshot-image" src="" alt="Loading..." style="display: none;">
+                            <div class="screenshot-placeholder" id="screenshot-placeholder">
+                                <div class="placeholder-icon">🖥️</div>
+                                <div class="placeholder-text">PowerPoint Presentation Interface</div>
+                            </div>
+                            <div class="action-overlay" id="action-overlay">Click slide thumbnail</div>
+                            <div class="click-indicator" id="click-indicator" style="top: 60%; left: 20%;"></div>
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <div class="trajectory-controls">
+                        <button class="control-btn" id="play-pause-btn" aria-label="Play animation" onclick="togglePlayPause()">
+                            <span aria-hidden="true">▶</span> <span id="play-text">Play</span>
+                        </button>
+
+                        <button class="control-btn" id="reset-btn" aria-label="Reset animation" onclick="resetAnimation()">
+                            <span aria-hidden="true">↻</span> Reset
+                        </button>
+  
+                        <button class="control-btn" id="prev-btn" disabled aria-label="Previous step" onclick="previousStep()">
+                            <span aria-hidden="true">←</span> Previous
+                        </button>
+                        <button class="control-btn" id="next-btn" aria-label="Next step" onclick="nextStep()">
+                            Next <span aria-hidden="true">→</span>
+                        </button>
+                        
+                    </div>
+                </div>
+
+                <!-- Right side - Analysis -->
+                <div class="analysis-container">
+                    <div class="step-header">
+                        <div class="step-counter" id="step-counter">Step 1 / 6</div>
+                        <div class="step-status status-active" id="step-status">In Progress</div>
+                    </div>
+
+                    <div class="section">
+                        <div class="model-title">Plan Model</div>
+                        <div class="section-box step-title-box">
+                            <div class="step-title" id="step-title">Navigate to Slide 3</div>
+                            <div class="step-description" id="step-description">
+                                The agent identifies the slide navigation panel and locates slide 3 in the presentation.
+                                Using computer vision, it detects the thumbnail and prepares to click on it.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="model-title">Actor Model</div>
+                        <div class="section-box step-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Action Type:</span>
+                                <span class="detail-value" id="action-type">Click</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-indicator">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill" style="width: 16.67%;"></div>
+                        </div>
+                        <div class="progress-text" id="progress-text">17% Complete</div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+         <section class="model-description-section">
+            <div class="model-header">
+                <h2 class="model-section-title">AI Agent Performance</h2>
+                <p class="model-intro">
+                    Built on InternVL2.5-2B—to other open-source 2B-parameter multimodal models, all evaluated on the same 70-task internal benchmark. 
+                    This comparison focuses on models with a similar parameter count, ensuring a fair assessment of architecture and training strategies rather than raw scale.
+                </p>
+            </div>
+
+            <div class="model-content">
+                <div class="model-grid">
+                    <!-- Approach -->
+                    <div class="model-card">
+                        <div class="model-card-header">
+                            <h3 class="model-card-title">Our Approach</h3>
+                        </div>
+                        <div class="model-card-content">
+                          <ul class="model-list">
+                              <li><strong>Action Model (2B):</strong> Optimized for action decision-making and UI element recognition using a novel token design</li>
+                              <li><strong>Planner Model (2B):</strong> LoRA-tuned on top of the Action Model for enhanced planning capabilities</li>
+                              <li><strong>Domain-Specific Training:</strong> Tailored specifically for PowerPoint-related workflows</li>
+                          </ul>
+
+                        </div>
+                    </div>
+
+                    <!-- Performance Results -->
+                    <div class="model-card">
+                        <div class="model-card-header">
+                            <h3 class="model-card-title">Performance Results</h3>
+                        </div>
+                        <div class="model-card-content">
+                            <div class="performance-simple">
+                                <div class="performance-row">
+                                    <span class="method-name">Our Approach</span>
+                                    <span class="success-rate best">24.3%</span>
+                                </div>
+                                <div class="performance-row">
+                                    <span class="method-name">ShowUI</span>
+                                    <span class="success-rate poor">4.3%</span>
+                                </div>
+                            </div>
+                            <div class="improvement-note">
+                                <strong>5.7x better</strong> than ShowUI (2B) models
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+  <!-- Navigation JavaScript -->
+  <script>
+   
+    // Trajectory demo data
+    const trajectorySteps = [
+      {
+        title: "Navigate to Slide 3",
+        description: "The agent identifies the slide navigation panel and locates slide 3 in the presentation. Using computer vision, it detects the thumbnail and prepares to click on it.",
+        actionType: "Click",
+        overlay: "Click slide thumbnail",
+        imageUrl: "../assets/images/ai-agent/img2.png", // Put your image in assets/images/ai-agent/ folder
+        altText: "PowerPoint Presentation Interface showing slide navigation",
+        clickPosition: { top: "0%", left: "0%" }
+      },
+      {
+        title: "Open Comments Panel",
+        description: "The agent locates the Comments button in the PowerPoint ribbon interface and clicks it to open the comments panel for the current slide.",
+        actionType: "Click",
+        overlay: "Click Comments button",
+        imageUrl: "../assets/images/ai-agent/img2.png", // Put your image in assets/images/ai-agent/ folder
+        altText: "PowerPoint Ribbon Interface with Comments button highlighted",
+        clickPosition: { top: "30%", left: "70%" }
+      },
+      {
+        title: "Add New Comment",
+        description: "The agent clicks on the add comment button or area to initiate the comment creation process on the selected slide.",
+        actionType: "Click",
+        overlay: "Click to add comment",
+        imageUrl: "../assets/images/ai-agent/step3-add-comment.png", // Put your image in assets/images/ai-agent/ folder
+        altText: "Comment Panel Interface with add comment option",
+        clickPosition: { top: "40%", left: "80%" }
+      },
+      {
+        title: "Type Comment Text",
+        description: "The agent types the specified comment text 'put circle shape' into the comment input field using keyboard automation.",
+        actionType: "Type",
+        overlay: "Type: 'put circle shape'",
+        imageUrl: "../assets/images/ai-agent/step4-type-comment.png", // Put your image in assets/images/ai-agent/ folder
+        altText: "Comment Input Field with text being typed",
+        clickPosition: { top: "50%", left: "50%" }
+      },
+      {
+        title: "Submit Comment",
+        description: "The agent clicks the Post or Submit button to publish the comment on the slide, making it visible to other users.",
+        actionType: "Click",
+        overlay: "Click Post button",
+        imageUrl: "../assets/images/ai-agent/step5-submit-comment.png", // Put your image in assets/images/ai-agent/ folder
+        altText: "Comment Submission Interface with Post button",
+        clickPosition: { top: "70%", left: "60%" }
+      },
+      {
+        title: "Verify Comment Posted",
+        description: "The agent verifies that the comment has been successfully posted by checking for its presence on the slide and confirming the action was completed.",
+        actionType: "Verify",
+        overlay: "Comment posted successfully",
+        imageUrl: "../assets/images/ai-agent/step6-verify-comment.png", // Put your image in assets/images/ai-agent/ folder
+        altText: "Slide with Posted Comment visible",
+        clickPosition: { top: "55%", left: "25%" }
+      }
+    ];
+
+    let currentStep = 0;
+    let isPlaying = false;
+    let playInterval;
+
+    function loadImage(imageUrl, altText) {
+      const imageElement = document.getElementById('screenshot-image');
+      const placeholder = document.getElementById('screenshot-placeholder');
+      
+      if (imageUrl && imageUrl.trim() !== '') {
+        // Show loading state
+        placeholder.innerHTML = '<div class="image-loading">Loading image...</div>';
+        
+        // Create new image to test loading
+        const testImage = new Image();
+        testImage.onload = function() {
+          imageElement.src = imageUrl;
+          imageElement.alt = altText;
+          imageElement.style.display = 'block';
+          placeholder.style.display = 'none';
+        };
+        testImage.onerror = function() {
+          // Fallback to placeholder if image fails to load
+          imageElement.style.display = 'none';
+          placeholder.style.display = 'block';
+          placeholder.innerHTML = `
+            <div class="placeholder-icon">🖼️</div>
+            <div class="placeholder-text">Image not available<br><small>URL: ${imageUrl}</small></div>
+          `;
+        };
+        testImage.src = imageUrl;
+      } else {
+        // No image URL provided, show placeholder
+        imageElement.style.display = 'none';
+        placeholder.style.display = 'block';
+        placeholder.innerHTML = `
+          <div class="placeholder-icon">🖼️</div>
+          <div class="placeholder-text">${altText}</div>
+        `;
+      }
+    }
+
+    function updateDisplay() {
+      const step = trajectorySteps[currentStep];
+      
+      // Update header
+      document.getElementById('screenshot-header').textContent = `Step ${currentStep + 1}: ${step.title}`;
+      
+      // Load image or show placeholder
+      loadImage(step.imageUrl, step.altText);
+      
+      // Update overlay
+      document.getElementById('action-overlay').textContent = step.overlay;
+      
+      // Update click indicator position
+      const clickIndicator = document.getElementById('click-indicator');
+      clickIndicator.style.top = step.clickPosition.top;
+      clickIndicator.style.left = step.clickPosition.left;
+      
+      // Update analysis panel
+      document.getElementById('step-counter').textContent = `Step ${currentStep + 1} / ${trajectorySteps.length}`;
+      document.getElementById('step-title').textContent = step.title;
+      document.getElementById('step-description').textContent = step.description;
+      document.getElementById('action-type').textContent = step.actionType;
+      
+      // Update progress
+      const progress = ((currentStep + 1) / trajectorySteps.length) * 100;
+      document.getElementById('progress-fill').style.width = `${progress}%`;
+      document.getElementById('progress-text').textContent = `${Math.round(progress)}% Complete`;
+      
+      // Update button states
+      document.getElementById('prev-btn').disabled = currentStep === 0;
+      document.getElementById('next-btn').disabled = currentStep === trajectorySteps.length - 1;
+      
+      // Update status
+      const status = currentStep === trajectorySteps.length - 1 ? 'Complete' : 'In Progress';
+      document.getElementById('step-status').textContent = status;
+      document.getElementById('step-status').className = currentStep === trajectorySteps.length - 1 ? 'step-status status-complete' : 'step-status status-active';
+    }
+
+    function nextStep() {
+      if (currentStep < trajectorySteps.length - 1) {
+        currentStep++;
+        updateDisplay();
+      }
+    }
+
+    function previousStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        updateDisplay();
+      }
+    }
+
+    function togglePlayPause() {
+      const playBtn = document.getElementById('play-pause-btn');
+      const playText = document.getElementById('play-text');
+      
+      if (isPlaying) {
+        // Pause
+        clearInterval(playInterval);
+        isPlaying = false;
+        playBtn.querySelector('span').textContent = '▶';
+        playText.textContent = 'Play';
+      } else {
+        // Play
+        if (currentStep >= trajectorySteps.length - 1) {
+          currentStep = 0;
+          updateDisplay();
+        }
+        
+        isPlaying = true;
+        playBtn.querySelector('span').textContent = '⏸';
+        playText.textContent = 'Pause';
+        
+        playInterval = setInterval(() => {
+          if (currentStep < trajectorySteps.length - 1) {
+            nextStep();
+          } else {
+            // End of sequence
+            clearInterval(playInterval);
+            isPlaying = false;
+            playBtn.querySelector('span').textContent = '▶';
+            playText.textContent = 'Play';
+          }
+        }, 2000);
+      }
+    }
+
+    function resetAnimation() {
+      clearInterval(playInterval);
+      isPlaying = false;
+      currentStep = 0;
+      updateDisplay();
+      
+      const playBtn = document.getElementById('play-pause-btn');
+      const playText = document.getElementById('play-text');
+      playBtn.querySelector('span').textContent = '▶';
+      playText.textContent = 'Play';
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      sidebar.classList.toggle('active');
+    }
+
+
+    // Initialize display
+    updateDisplay();
+  </script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

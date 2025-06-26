@@ -191,7 +191,8 @@
   .avatar-box {
     background: var(--bg-gradient-onyx);
     border-radius: 20px;
-    width: 150px; padding-top: 10px; 
+    margin: auto;
+    padding-top: 10px;
   }
   
   .info-content .name {
@@ -656,8 +657,8 @@
     .sidebar.active { max-height: 584px; }
   
     .sidebar-info { gap: 25px; }
-    .avatar-box { border-radius: 30px; }
-    .avatar-box img { width: 120px; padding-top: 10px}
+    .avatar-box { border-radius: 30px; margin: auto;}
+    .avatar-box img { width: 120px; margin: auto;}
     .info-content .name { margin-bottom: 15px; }
     .info-content .title { padding: 5px 18px; }
   
@@ -746,7 +747,7 @@
     position: absolute;
     bottom: auto;
     top: 0;
-    left: auto;
+    left: 60.5%;
     right: 0;
     width: max-content;
     border-radius: 0 20px;
@@ -789,7 +790,17 @@
       width: 75%;
       margin: 0;
     }
-  
+     .navbar {
+    position: absolute;
+    bottom: auto;
+    top: 0;
+    left: auto;
+    right: 0;
+    width: max-content;
+    border-radius: 0 20px;
+    padding: 0 20px;
+    box-shadow: none;
+  }
     .sidebar {
       position: sticky;
       top: 60px;
@@ -801,8 +812,7 @@
     }
   
     .sidebar-info { flex-direction: column; }
-    .avatar-box img {     width: 150px; padding-top: 10px; 
-}
+    .avatar-box img { width: 150px; margin: auto; }
   
     .info-content .name {
       white-space: nowrap;

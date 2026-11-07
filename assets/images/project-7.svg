@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 263 150" width="263" height="150">
+  <rect width="263" height="150" fill="#F08080"/>
+  <g transform="translate(-15 7)" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- chat bubble -->
+    <path d="M100 40 H162 A14 14 0 0 1 176 54 V86 A14 14 0 0 1 162 100 H118 L102 114 V100 H100 A14 14 0 0 1 86 86 V54 A14 14 0 0 1 100 40 Z"/>
+    <!-- coin -->
+    <circle cx="131" cy="70" r="18"/>
+    <text x="131" y="76" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#111" stroke="none">Rp</text>
+    <!-- AI sparkle -->
+    <path d="M196 22 Q198 32 208 34 Q198 36 196 46 Q194 36 184 34 Q194 32 196 22 Z"/>
+  </g>
+</svg>

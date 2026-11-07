@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 263 150" width="263" height="150">
+  <rect width="263" height="150" fill="#F08080"/>
+  <g transform="translate(-8 -10)" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- far-side legs (mid-stride) -->
+    <path d="M160 74 L172 98 L160 120" opacity="0.55"/>
+    <path d="M100 74 L112 98 L100 120" opacity="0.55"/>
+
+    <!-- body -->
+    <rect x="84" y="50" width="98" height="26" rx="8" fill="#F08080"/>
+    <path d="M100 58 h20 M100 66 h20"/>
+    <circle cx="160" cy="63" r="5"/>
+
+    <!-- head / sensor -->
+    <path d="M182 56 h12 a6 6 0 0 1 6 6 v4 a6 6 0 0 1 -6 6 h-12" fill="#F08080"/>
+    <path d="M200 62 h6 M200 68 h6"/>
+
+    <!-- near-side legs -->
+    <path d="M168 74 L152 98 L168 120" fill="none"/>
+    <path d="M94 74 L78 98 L94 120" fill="none"/>
+
+    <!-- joints -->
+    <circle cx="168" cy="74" r="5" fill="#F08080"/>
+    <circle cx="152" cy="98" r="5" fill="#F08080"/>
+    <circle cx="94" cy="74" r="5" fill="#F08080"/>
+    <circle cx="78" cy="98" r="5" fill="#F08080"/>
+
+    <!-- feet -->
+    <path d="M161 122 h14 M87 122 h14"/>
+  </g>
+</svg>

@@ -355,6 +355,14 @@
   }
   
   .about-text p { margin-bottom: 15px; }
+
+  .about-text a {
+    display: inline;
+    color: var(--orange-yellow-crayola);
+    font-weight: var(--fw-500);
+  }
+
+  .about-text a:hover { text-decoration: underline; }
   
   .service { margin-bottom: 35px; }
   .service-title { margin-bottom: 20px; }
